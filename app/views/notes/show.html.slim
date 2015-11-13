@@ -1,0 +1,16 @@
+p#notice = notice
+
+p
+	strong Title:
+	br
+	= @note.title
+p
+	strong Content:
+	br
+	= simple_format @note.content
+
+ul.hmenu
+	li = link_to 'Back', notes_path
+	li = link_to 'Edit', edit_note_path(@note)
+	li = link_to 'Destroy', @note, data: {confirm: 'Are you sure?'}, method: :delete
+
