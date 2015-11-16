@@ -1,16 +1,10 @@
-= form_for @note do |f|
-  - if @note.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@note.errors.count, "error")} prohibited this note from being saved:"
-      ul
-        - @note.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-    
-  .actions = f.submit
+= parsley_form_for @note do |f|
+  div class="row uniform 50%"
+    div class="12u"
+      = f.input :title, label: false, input_html: {placeholder: "Title"}
+    div class="12u"
+      = f.input :content, label: false, input_html: {rows: 8, placeholder: "Enter your content"}
+      
+    ul.actions
+      li = f.submit
+      li = link_to 'Cancel', notes_path, class: "button alt"

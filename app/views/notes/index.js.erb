@@ -1,5 +1,5 @@
 // Append new data
-$("<%=j render partial: 'notes', object: @notes %>").appendTo($(".infinite-notes table"))
+$("<%=j render partial: 'notes', object: @notes %>").appendTo($(".infinite-notes"));
 
 // Update pagination link
 <% if @notes.last_page? %>

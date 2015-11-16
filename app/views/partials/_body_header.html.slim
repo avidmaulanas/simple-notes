@@ -1,0 +1,11 @@
+/! Header
+header#header
+	h1
+		= link_to "SimpleNotes", root_path
+	nav#nav
+		ul			
+			- if user_signed_in?
+				li = link_to "Home", root_path
+				li = link_to "Logout", destroy_user_session_path, method: :delete
+			- else      
+				li = link_to "Sign in", new_session_path(:user)

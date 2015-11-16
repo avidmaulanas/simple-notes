@@ -1,60 +1,37 @@
 doctype html
 html
-	head
-		= tag :meta, charset: "UTF-8"
-		= tag :meta, "http-equiv" => "content-type", content: "text/html; charset=utf-8"
-		= tag :meta, name: "description", content: "write simple note"
-		= tag :meta, name: "keywords", content: "simple notes, notes, note, write note"
-    title SimpleNotes   
-    /![if lt IE 9]
-			= javascript_include_tag 'html5shiv'  
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true   
-    noscript
-		  link href="#{asset_path("transit/skel.css")}" rel="stylesheet"
-		  link href="#{asset_path("transit/style.css")}" rel="stylesheet"
-		  link href="#{asset_path("transit/style-xlarge.css")}" rel="stylesheet" 
-    = csrf_meta_tags
+	= render "partials/head"
 
 	body.landing
-	  /! Header
-	  header#header
-	    h1
-	      = link_to "SimpleNotes", root_path
-	    nav#nav
-	      ul
-	        li = link_to "Home", root_path
-	        li = link_to "Notes", notes_path
-	        li = link_to "Sign up", new_registration_path(:user), class: "button special"
-
+	  = render "partials/body_header"
 	  /! Banner
 	  section#banner
-	    h2 Get Note, Before Forget.
-	    p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-	    ul.actions
-	      li = link_to "Let's Write", new_note_path, class: "button big"
+	    h2 Let's Note, Before Forget.
+	    p Write everything, let me save your memory.
+	    ul.actions	      
+	      li = link_to "Try it free", new_registration_path(:user), class: "button big"
 	  /! One
 	  section#one.wrapper.style1.special
 	    .container
 	      header.major
-	        h2 Consectetur adipisicing elit
-	        p Lorem ipsum dolor sit amet, delectus consequatur, similique quia!
+	        h2 Features
+	        p Our platform build with agile technology.
 	      .row class="150%" 
 	        .4u class="12u$(medium)" 
 	          section.box
 	            i.icon.big.rounded.color1.fa-cloud
-	            h3 Lorem ipsum dolor
-	            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quam consectetur quibusdam magni minus aut modi aliquid.
+	            h3 Cloud
+	            p Don't worry for forget everything. It will be save in cloud.
 	        .4u class="12u$(medium)" 
 	          section.box
 	            i.icon.big.rounded.color9.fa-desktop
-	            h3 Consectetur adipisicing
-	            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ullam consequatur repellat debitis maxime.
+	            h3 Any Devices Compatible
+	            p You can open in smartphone, tabs, notebook, or desktop.
 	        div class=("4u$ 12u$(medium)") 
 	          section.box
 	            i.icon.big.rounded.color6.fa-rocket
-	            h3 Adipisicing elit totam
-	            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eveniet, nesciunt molestias. Ipsam, voluptate vero.
+	            h3 Fast Access
+	            p No spent more time, you can write and save note with fast.
 	  /! Two
 	  section#two.wrapper.style2.special
 	    .container

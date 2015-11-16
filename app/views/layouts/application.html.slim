@@ -1,13 +1,12 @@
 doctype html
 html
-	head
-    title SimpleNotes
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    /![if lt IE 9]
-			= javascript_include_tag 'html5shiv'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+	= render "partials/head"
 
-	body  	
-		= render "partials/menus"		
-  	= yield	
+	body  
+		= render "partials/body_header"	
+
+		section
+			.container
+				section
+  				= yield
+  		= yield :section_tag	

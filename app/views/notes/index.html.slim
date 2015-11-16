@@ -1,9 +1,14 @@
-h1 Notes
-= link_to 'New Note', new_note_path
+- content_for :section_tag
+  section#banner
+    header.major
+      h2 Notes
+      = link_to new_note_path, class: "button"
+        i.fa.fa-plus
 
-.infinite-notes
-  table
-    = render partial: 'notes', object: @notes
-  
-.pagination
-  = link_to_next_page(@notes, 'Next Page', remote: true)
+  .wrapper.style1.special
+    .container
+      div class="row 150% infinite-notes"
+        = render partial: 'notes', object: @notes
+          
+      .pagination
+        = link_to_next_page(@notes, 'Next Page', remote: true)
