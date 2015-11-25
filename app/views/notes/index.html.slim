@@ -7,8 +7,8 @@
 
   .wrapper.style1.special
     .container
-      div class="row 150% infinite-notes"
+      div class="row infinite-notes"
         = render partial: 'notes', object: @notes
-          
-      .pagination
-        = link_to_next_page(@notes, 'Next Page', remote: true)
+        
+    .pagination
+      = link_to_next_page(@notes, 'Next Page', remote: true)

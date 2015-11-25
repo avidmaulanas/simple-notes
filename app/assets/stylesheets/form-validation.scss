@@ -1,7 +1,7 @@
-.field_with_errors{
+.has-error {
 	border: 1px solid red;
   margin-bottom: 20px;
-  span.error {
+  span.help-block {
   	background-color: red;
   	color: white;
   	display: block;

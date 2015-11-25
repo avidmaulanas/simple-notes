@@ -1,17 +1,21 @@
-ready = ->
-	$('.infinite-notes').infinitePages
-		debug: true
-		buffer: 200 # load new page when within 200px of nav link
-		# context: 'body' # define the scrolling container (defaults to window)
-		loading: ->
-			# jQuery callback on the nav element
-			$(this).text("Loading...")
-		success: ->
-		# called after successful ajax call
-		error: ->
-			# called after failed ajax call
-			$(this).text("Trouble! Please drink some coconut water and click again")
+$(document).bind "page:load page:change", ->
+  $container = $('.infinite-notes')
 
-$(document).ready ready
-$(document).bind "page:load page:change", ready
-	
+  $container.masonry
+    itemSelector: '.box'
+    columnWidth: '.box'
+
+  $container.infinitescroll {
+    navSelector: '.pagination'
+    nextSelector: '.pagination a'
+    itemSelector: '.box'
+    loading:
+      finishedMsg: 'No more pages to load.'
+      img: 'http://i.imgur.com/6RMhx.gif'
+  }, (newElements) ->
+    # hide new items while they are loading
+    $newElems = $(newElements).css(opacity: 0)
+    $newElems.animate opacity: 1
+    $container.masonry 'appended', $newElems, true
+    return
+  return

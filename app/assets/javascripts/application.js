@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.infinite-pages
+//= require masonry/masonry.min
+//= require masonry/jquery.infinitescroll.min
 //= require transit/skel.min.js
 //= require transit/skel-layers.min.js
 //= require transit/init.js
+//= require notes
